@@ -1,0 +1,11 @@
+<div class='well'>
+
+	<div class='pull-left'>{{ minDate | date: "dd-MM-yyyy" }}</div>
+
+	<div class='pull-right'>{{ maxDate | date: "dd-MM-yyyy" }}</div>
+
+	<md-slider type='range' flex min='1420070400000' max='1451520000000' step='86400000' ng-model='date.ms' aria-label='blue' class='md-primary' ng-mouseup='setSliderDate()'></md-slider>
+
+	<md-datepicker ng-model='calendarDate' md-min-date='minDate' md-max-date='maxDate' ng-change='setCalendarDate()' value='{{ calendarDate | date: "dd-MM-yyyy" }}'></md-datepicker>
+
+</div>

@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Fideligard Stock PortFolio</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js'></script>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+	<script src='app.js'></script>
+</head>
+<body ng-app='Fideligard'>
+
+	<nav>nav</nav>
+
+	<div ui-view='dashboard'>
+		<div class='row'>
+			<div class='col-sm-4'>
+				<div ui-view='stock-panel'></div>
+			</div>
+
+			<div class='col-sm-7 col-sm-offset-1'>
+				<div class='row'>
+					<div class='col-xs-12'>
+						<div ui-view='date-picker'></div>
+					</div>
+
+					<div class='col-xs-12'>
+						<div ui-view='main-panel'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src='js/controllers/stockCtrl.js'></script>
+	<script src='js/controllers/datePickerCtrl.js'></script>
+
+	<script src='js/services/dataService.js'></script>
+	<script src='js/services/dateService.js'></script>
+	<script src='js/services/companyService.js'></script>
+	<script src='js/services/stockService.js'></script>
+
+
+</body>
+</html>

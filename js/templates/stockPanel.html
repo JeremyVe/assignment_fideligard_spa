@@ -1,0 +1,28 @@
+<div>
+
+	<p>{{ date.ms }}</p>
+
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Symbol</th>
+				<th>Price</th>
+				<th>1d</th>
+				<th>7d</th>
+				<th>30d</th>
+				<th>Trade?</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat='stock in stocks'>
+				<td>{{ stock.symbol }}</td>
+				<td>{{ stock.price | currency }}</td>
+				<td>{{ stock.oneDay | currency }}</td>
+				<td>{{ stock.sevenDays | currency }}</td>
+				<td>{{ stock.thirtyDays | currency }}</td>
+				<td>{{ Trade }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
