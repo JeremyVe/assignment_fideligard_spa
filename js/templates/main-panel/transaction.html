@@ -1,0 +1,33 @@
+<div class='row'>
+	<div class='col-xs-12'>
+		<md-input-container class='pull-right'>
+			<label>Filter by</label>
+			<md-select ng-model='filterSymbol'>
+				<md-option value=''>All</md-option>
+				<md-option ng-repeat='symbol in symbols' value='{{ symbol }}'>{{ symbol }}</md-option>
+			</md-select>
+		</md-input-container>
+
+		<table class='table'>
+			<thead>
+				<tr>
+					<th ng-click='orderColumn = "date" ; orderReverse = !orderReverse '>Date</th>
+					<th ng-click='orderColumn = "symbol" ; orderReverse = !orderReverse '>Symbol</th>
+					<th ng-click='orderColumn = "type" ; orderReverse = !orderReverse '>Type</th>
+					<th ng-click='orderColumn = "quantity" ; orderReverse = !orderReverse '>Quantity</th>
+					<th ng-click='orderColumn = "price" ; orderReverse = !orderReverse '>Price</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat='transaction in transactions | filter: {symbol: filterSymbol} | orderBy:orderColumn:orderReverse'>
+					<td>{{ transaction.date | date: 'dd-MM-yyyy' }}</td>
+					<td>{{ transaction.symbol }}</td>
+					<td>{{ transaction.type }}</td>
+					<td>{{ transaction.quantity }}</td>
+					<td>{{ transaction.price | currency }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -28,6 +28,11 @@ Fideligard.config(
 				templateUrl: 'js/templates/main-panel/trade.html',
 				controller: 'TradeCtrl'
 			})
+			.state('dashboard.transaction', {
+				url: 'transaction',
+				templateUrl: 'js/templates/main-panel/transaction.html',
+				controller: 'TransactionCtrl'
+			})
 
 	}])
 
