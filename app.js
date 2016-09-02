@@ -4,7 +4,7 @@ Fideligard.config(
 	['$stateProvider', '$urlRouterProvider', 
 	function($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('dashboard');
 
 		$stateProvider
 			.state('dashboard', {
@@ -19,13 +19,14 @@ Fideligard.config(
 						controller: 'StockCtrl'
 					},
 					'main-panel': {
-						template: 'this is the main panel <a ui-sref="dashboard.main-panel">click</a> <div ui-view></div>'
+						templateUrl: 'js/templates/mainPanel.html'
 					}
 				}
 			})
-			.state('dashboard.main-panel', {
-				url: "/main",
-				template: 'hello from the main panel'
+			.state('dashboard.trade', {
+				url: 'trade?symbol&price&date',
+				templateUrl: 'js/templates/main-panel/trade.html',
+				controller: 'TradeCtrl'
 			})
 
 	}])

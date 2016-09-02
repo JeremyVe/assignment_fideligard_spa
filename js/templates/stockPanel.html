@@ -38,7 +38,7 @@
 				<td>{{ stock.oneDay | currency }}</td>
 				<td>{{ stock.sevenDays | currency }}</td>
 				<td>{{ stock.thirtyDays | currency }}</td>
-				<td>{{ Trade }}</td> 
+				<td><a ui-sref='dashboard.trade({symbol: stock.symbol, date: date.ms, price: stock.price})'>Trade?</a></td> 
 			</tr>
 		</tbody>
 	</table>

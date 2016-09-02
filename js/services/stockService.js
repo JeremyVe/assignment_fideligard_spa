@@ -5,7 +5,8 @@ Fideligard.factory('stockService',
 
 		var _allStocksData = {};
 
-		var _symbols = ['AAPL', 'GOOGL', 'TWTR', 'FB'];
+		var _symbols = ['AAPL'];
+		// var _symbols = ['AAPL', 'GOOGL', 'TWTR', 'FB'];
 
 		var service = {};
 

@@ -1,0 +1,50 @@
+<div class='row'>
+	<div class='col-xs-7'>
+		<h1>Trade</h1>
+
+		<md-content>
+			<form name='tradingForm' ng-submit='createTrade(tradingForm.$valid)'>
+
+				<md-input-container>
+					<label>Symbol</label>
+					<input type='text' name='symbol' required ng-model='trade.symbol'>
+				</md-input-container><br>
+
+				<md-input-container>
+					<label>Buy/Sell</label>
+					<md-select name='type' required ng-model='trade.type'>
+						<md-option value='buy' selected>Buy</md-option>
+						<md-option value='sell'>Sell</md-option>
+					</md-select>
+				</md-input-container><br>
+
+				<md-input-container>
+					<label>Quantity</label>
+					<input type='text' name='quantity' required ng-model='trade.quantity'>
+				</md-input-container>
+
+				<md-input-container>
+					<label>Date</label>
+					<md-datepicker type='date' name='date' required ng-model='trade.date'></md-datepicker>
+				</md-input-container>
+
+				<p>Price: <span>{{ trade.price | currency }}</span></p>
+
+				<p>Cost: <span>{{ trade.price * trade.quantity | currency }}</span></p>
+
+				<input type='submit' value='Place Order!' class='btn btn-primary'>
+
+			</form>
+		</md-content>
+
+	</div>
+
+	<div class='col-xs-5'>
+		<p>Cash Available : </p>
+		<p>{{ cashAvailable | currency }}</p>
+
+		<p>Order Status : </p>
+		<p ng-show='tradingForm.$valid' style='color: ForestGreen'>VALID</p>
+		<p ng-show='!tradingForm.$valid' style='color: Crimson'>INVALID</p>
+	</div>
+</div>
