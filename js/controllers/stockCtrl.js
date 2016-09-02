@@ -4,7 +4,7 @@ Fideligard.controller('StockCtrl',
 
 		$scope.date = dateService.date;
 
-		//$scope.stocks = stockService.buildStock($scope.date.ms);
+		$scope.symbols = stockService.getSymbols();
 
 		$scope.$watch('date.ms', function(newV, oldV) {
 			$scope.stocks = [];

@@ -1,27 +1,44 @@
 <div>
 
-	<p>{{ date.ms }}</p>
+	<p class='pull-left'>{{ date.ms | date: 'dd-MM-yyyy' }}</p>
+
+	<md-input-container class='pull-right'>
+		<label>Filter Companies</label>
+		<md-select ng-model='symbolFilter' aria-label='filter companies'>
+		<md-option value=''>All</md-option>
+			<md-option ng-repeat='symbol in symbols' value='{{ symbol }}'>{{ symbol }}</md-option>
+		</md-select>
+	</md-input-container>
 
 	<table class='table'>
 		<thead>
 			<tr>
-				<th>Symbol</th>
-				<th>Price</th>
-				<th>1d</th>
-				<th>7d</th>
-				<th>30d</th>
+				<th ng-click='orderColumn = "symbol" ; orderReverse= !orderReverse'>
+					Symbol 
+					<i ng-show='orderColumn === "symbol" && orderReverse === true' class='glyphicon glyphicon-chevron-up'></i>
+					<i ng-show='orderColumn === "symbol" && orderReverse === false' class='glyphicon glyphicon-chevron-down'></i>
+				</th>
+
+				<th ng-click='orderColumn = "price" ; orderReverse= !orderReverse'>
+					Price
+					<i ng-show='orderColumn === "price" && orderReverse === true' class='glyphicon glyphicon-chevron-up'></i>
+					<i ng-show='orderColumn === "price" && orderReverse === false' class='glyphicon glyphicon-chevron-down'></i>
+				</th>
+				<th>1 day</th>
+				<th>7 days</th>
+				<th>30 days</th>
 				<th>Trade?</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<tr ng-repeat='stock in stocks'>
+			<tr ng-repeat='stock in stocks | filter: {symbol: symbolFilter} | orderBy:orderColumn:orderReverse'>
 				<td>{{ stock.symbol }}</td>
 				<td>{{ stock.price | currency }}</td>
 				<td>{{ stock.oneDay | currency }}</td>
 				<td>{{ stock.sevenDays | currency }}</td>
 				<td>{{ stock.thirtyDays | currency }}</td>
-				<td>{{ Trade }}</td>
+				<td>{{ Trade }}</td> 
 			</tr>
 		</tbody>
 	</table>
