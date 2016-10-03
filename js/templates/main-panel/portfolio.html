@@ -1,0 +1,64 @@
+This is the portfolio
+
+<div>
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Cost Basis</th>
+				<th>Current Value</th>
+				<th>Profit / Loss</th>
+				<th>1d</th>
+				<th>7d</th>
+				<th>30d</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>{{ total.costBasis | currency }}</td>
+				<td>{{ total.currentValue | currency }}</td>
+				<td>{{ total.currentValue - total.costBasis | currency }}</td>
+				<td>{{ total.oneDay | currency }}</td>
+				<td>{{ total.sevenDays | currency }}</td>
+				<td>{{ total.thirtyDays | currency }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Symbol</th>
+				<th>Quantity</th>
+				<th>Cost Basis</th>
+				<th>Current Value</th>
+				<th>Profit / Loss</th>
+				<th>Current Price</th>
+				<th>1d</th>
+				<th>7d</th>
+				<th>30d</th>
+				<th>Trade?</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>CASH</td>
+				<td>{{ cash | currency }}</td>
+			</tr>
+
+			<tr ng-repeat='item in portfolio'>
+				<td>{{ item.symbol }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>{{ item.paidPrice | currency }}</td>
+				<td>{{ findStockBy(item.symbol).price * item.quantity | currency }}</td>
+				<td>{{ findStockBy(item.symbol).price * item.quantity - item.paidPrice | currency }}</td>
+				<td>{{ findStockBy(item.symbol).price | currency }}</td>
+				<td>{{ findStockBy(item.symbol).oneDay | currency }}</td>
+				<td>{{ findStockBy(item.symbol).sevenDays | currency }}</td>
+				<td>{{ findStockBy(item.symbol).thirtyDays | currency }}</td>
+				<td><a ui-sref='dashboard.trade({symbol: item.symbol, date: date.ms, price: item.price})'>Trade</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

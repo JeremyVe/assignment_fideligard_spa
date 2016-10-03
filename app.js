@@ -4,7 +4,7 @@ Fideligard.config(
 	['$stateProvider', '$urlRouterProvider', 
 	function($stateProvider, $urlRouterProvider) {
 
-		$urlRouterProvider.otherwise('dashboard');
+		$urlRouterProvider.otherwise('');
 
 		$stateProvider
 			.state('dashboard', {
@@ -32,6 +32,11 @@ Fideligard.config(
 				url: 'transaction',
 				templateUrl: 'js/templates/main-panel/transaction.html',
 				controller: 'TransactionCtrl'
+			})
+			.state('dashboard.portfolio', {
+				url: 'portfolio',
+				templateUrl: 'js/templates/main-panel/portfolio.html',
+				controller: 'PortfolioCtrl'
 			})
 
 	}])

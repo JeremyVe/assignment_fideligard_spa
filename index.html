@@ -21,10 +21,32 @@
 
 
 	<script src='app.js'></script>
+
+	<style>
+		.navbar {
+			width: 100%;
+			height: 80px;
+			border-bottom: 1px solid #aeaeae;
+			box-shadow: 0 3px 5px 0 #cacaca;
+			line-height: 80px;
+			background-color: Navy;
+		}
+
+		.navbar h2 {
+			color: white;
+			margin-left: 30px;
+			letter-spacing: 4px;
+			font-weight: 200;
+
+		}
+
+	</style>
 </head>
 <body ng-app='Fideligard'>
 
-	<nav>nav</nav>
+	<nav class='navbar'>
+		<h2>FideliGard</h2>
+	</nav>
 
 	<div ui-view='dashboard'>
 		<div class='row'>
@@ -50,6 +72,7 @@
 	<script src='js/controllers/datePickerCtrl.js'></script>
 	<script src='js/controllers/tradeCtrl.js'></script>
 	<script src='js/controllers/transactionCtrl.js'></script>
+	<script src='js/controllers/portfolioCtrl.js'></script>
 
 	<script src='js/services/dataService.js'></script>
 	<script src='js/services/dateService.js'></script>
